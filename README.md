@@ -7,7 +7,7 @@
 
 ## Fixed version
 
-https://lutra-fs.github.io/CheckChrome
+https://xixiranran.github.io/CheckChrome
 
 
 ## API for CheckChrome
@@ -17,13 +17,13 @@ XML Format Output
 ### Not compressed (For development)
 
 ```
-GET https://lutra-fs.github.io/CheckChrome/api/chrome.xml
+GET https://xixiranran.github.io/CheckChrome/api/chrome.xml
 ```
 
 ### Compressed (For production)
 
 ```
-GET https://lutra-fs.github.io/CheckChrome/api/chrome.min.xml
+GET https://xixiranran.github.io/CheckChrome/api/chrome.min.xml
 ```
 
 ## Advanced - Google Updater (Omaha) API
