@@ -15,7 +15,7 @@ do
     dl_cache=${cache}${dl_alt_base}${dl_file}
     sha256=$(sed -n '5p' ./tmp/parse/${i}-result.info)
     size_raw=$(sed -n '6p' ./tmp/parse/${i}-result.info)
-    size=$(awk 'BEGIN{printf "%.3f",('$size_raw'/'1048576')}')" MB"
+    size=$(awk 'BEGIN{printf "%.2f",('$size_raw'/'1048576')}')" MB"
 
     sed -i "s|{{${i}-Version}}|$version|g" tmp/index.html
     sed -i "s|{{${i}-SHA256}}|$sha256|g" tmp/index.html
