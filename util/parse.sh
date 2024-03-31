@@ -27,14 +27,8 @@ do
     # sed -n '22p' ./tmp/parse/${i}.info >> ./tmp/parse/${i}-result.info
     # sed -n '24p' ./tmp/parse/${i}.info >> ./tmp/parse/${i}-result.info
     VERSION=$(xmllint --xpath "string(/response/app/updatecheck/manifest/@version)" ./tmp/checker/${i}.xml) 
-    URL1=$(xmllint --xpath"string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://edgedl.me.gvt1.com')]/@codebase)" ./tmp/checker/${i}.xml)
-    URL2=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://edgedl.me.gvt1.com')]/@codebase)" ./tmp/checker/${i}.xml)
-    URL3=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'http://dl.google.com')]/@codebase )" ./tmp/checker/${i}.xml)
-    URL4=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://dl.google.com')]/@codebase )" ./tmp/checker/${i}.xml)
-    URL5=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'http://redirector.gvt1.com')]/@codebase )" ./tmp/checker/${i}.xml)
-    URL6=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://redirector.gvt1.com')]/@codebase )" ./tmp/checker/${i}.xml)
-    URL7=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'http://www.google.com')]/@codebase )" ./tmp/checker/${i}.xml)
-    URL8=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://www.google.com')]/@codebase )" ./tmp/checker/${i}.xml)
+    URL1=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://edgedl.me.gvt1.com')]/@codebase)" ./tmp/checker/${i}.xml)
+    URL2=$(xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://dl.google.com')]/@codebase )" ./tmp/checker/${i}.xml)
     INSTALLER=$(xmllint --xpath "string(/response/app/updatecheck/manifest/actions/action[@event='install']/@run)" ./tmp/checker/${i}.xml)
     SHA256=$(xmllint --xpath "string(/response/app/updatecheck/manifest/packages/package/@hash_sha256)" ./tmp/checker/${i}.xml)
     SIZE=$(xmllint --xpath "string(/response/app/updatecheck/manifest/packages/package/@size)" ./tmp/checker/${i}.xml)
@@ -44,12 +38,6 @@ do
     echo $URL2 >> ./tmp/parse/${i}-result.info
     #xmllint --xpath "string(/response/app/updatecheck/urls/url[starts-with(@codebase,'https://www.google.com')]/@codebase)" ./tmp/checker/${i}.xml >> ./tmp/parse/${i}-result.info
     sed -i 's|https://||g' ./tmp/parse/${i}-result.info
-    echo $URL3 >> ./tmp/parse/${i}-result.info
-    echo $URL4 >> ./tmp/parse/${i}-result.info
-    echo $URL5 >> ./tmp/parse/${i}-result.info
-    echo $URL6 >> ./tmp/parse/${i}-result.info
-    echo $URL7 >> ./tmp/parse/${i}-result.info
-    echo $URL8 >> ./tmp/parse/${i}-result.info
     echo $INSTALLER  >> ./tmp/parse/${i}-result.info
     echo $SHA256  >> ./tmp/parse/${i}-result.info
     echo $SIZE  >> ./tmp/parse/${i}-result.info
